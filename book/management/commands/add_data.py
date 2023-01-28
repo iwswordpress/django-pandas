@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
   def handle(self, *args, **options):
 
-    excel_file = 'books.xlsx'
+    excel_file = 'books2.xlsx'
     df = pd.read_excel(excel_file)
     
     user = settings.DATABASES['default']['USER']
@@ -21,4 +21,4 @@ class Command(BaseCommand):
 
     engine = create_engine(database_url, echo=False)
 
-    df.to_sql(Book._meta.db_table, if_exists='replace', con=engine, index=False)
+    df.to_sql(Book._meta.db_table, if_exists='append', con=engine, index=False)
