@@ -1,4 +1,4 @@
-Veryu Academy
+Very Academy
 
 https://www.youtube.com/watch?v=NMsAKQI9Cbc
 

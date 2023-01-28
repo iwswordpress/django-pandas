@@ -1,6 +1,6 @@
 import pandas as pd
 from django.core.management.base import BaseCommand
-from book.models import Book
+from book.models import Book, Projects
 from sqlalchemy import create_engine
 from django.conf import settings
 
@@ -10,6 +10,7 @@ class Command(BaseCommand):
   def handle(self, *args, **options):
 
     excel_file = 'books2.xlsx'
+
     df = pd.read_excel(excel_file)
     
     user = settings.DATABASES['default']['USER']

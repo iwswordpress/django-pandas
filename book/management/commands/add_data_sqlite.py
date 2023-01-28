@@ -1,8 +1,7 @@
 import pandas as pd
 from django.core.management.base import BaseCommand
-from book.models import Book
+from book.models import Project
 from sqlalchemy import create_engine
-from django.conf import settings
 
 class Command(BaseCommand):
   help = "A command to add data from an Excel file to the database"
@@ -11,13 +10,12 @@ class Command(BaseCommand):
 
     print('--> Management Command')
 
-    excel_file = 'books.xlsx'
+    excel_file = 'pycaret_results_meeting.xlsx'
     df = pd.read_excel(excel_file)
     print(df)
   
-
     engine = create_engine('sqlite:///db.sqlite3')
 
-    # specify book table via_meta.db_table
-    # df.to_sql(Book._meta.db_table, if_exists='replace', con=engine, index=False)
-    df.to_sql(Book._meta.db_table, if_exists='append', con=engine, index=True)
+    # specify Project table via_meta.db_table
+    df.to_sql(Project._meta.db_table, if_exists='replace', con=engine, index=False)
+  
