@@ -1,9 +1,5 @@
 from django.db import models
 
-class Book(models.Model):
-
-  title = models.CharField(max_length=255)
-
 class Project(models.Model):
 
     run_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
